@@ -34,7 +34,7 @@ Inspired by guidelines like the [International Guidelines and Standards for Spac
 ### Setup
 1. Clone the repository:
    ```
-   git clone https://github.com/yourusername/crew-report-template.git
+   git clone https://github.com/marssociety/crew-report-template.git
    cd crew-report-template
    ```
 
