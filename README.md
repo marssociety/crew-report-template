@@ -71,7 +71,7 @@ Example snippet:
 To create a report:
 1. Copy the template and fill in your data.
 2. Ensure dates use ISO 8601 format (e.g., "2025-07-15T17:45:00Z").
-3. For batch reports, create an array of these objects in a file like `my_reports.json`.
+3. For batch reports, create an array of these objects in a file like `reports.json`.
 
 ### Validating Reports with the Schema and Script
 Use the provided schema (`report_schema.json`) and validation script to ensure your JSON reports conform to the template.
