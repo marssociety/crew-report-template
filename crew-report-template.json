@@ -1,0 +1,80 @@
+// All fields required unless stated otherwise.
+
+{
+  "report_id": "123",  // Unique ID (renamed from post_id for clarity)
+
+  "title": "Sol Summary Report - July 15, 2025",  // Report title, what you would see as the top heading or browse hyperlink.
+
+  "publish_date": "2025-07-15T17:45:00Z",  // ISO 8601 timestamps used for all dates in this template.
+
+  "author": "Jane Doe",  // Report author
+
+  "station": "MDRS",  // Analog station name (e.g., MDRS, Flashline)
+
+  "mission_name": "MDRS Crew 200",  // Format can be specific to habitat or crew increment
+
+  "crew_number": "200", // Integer Crew number, if any.
+
+  "mission_type": "Mars Analog Simulation",  // Should be defined in the future
+
+  "mission_start_date": "2025-07-11T00:00:00Z",  // Start of the mission or crew increment.  Can be used with the next field to calculate which date this report covers.
+
+  "mission_duration_day": 5,  // Integer days of the mission or crew increment.  For Mars Analogs, this is the same as "Sol #"
+
+  "report_date": "2025-07-15T00:00:00Z",  // Specific date this report was covering. Should be same as the above date (Start of mission + sol #).
+
+  "report_type": "Sol Summary",  // e.g., Commander's Report, EVA Report, End-of-Mission Report, etc.
+
+  "categories": ["Operations Report", "Crew Report"],  // Optional; Array for classification/categories
+
+  "tags": ["EVA", "Geology"],  // Optional; Array for keywords
+
+  "crew_members": [  // Optional; Array of crew members and roles. Not necessary for every report. Suitable for crew bios, initial plan, or final mission summary report.
+    {
+      "name": "Jane Doe",
+      "role": "Commander",  // Free string (no enum for universality)
+      "affiliation": "NASA"  // Optional: e.g., university, agency
+    },
+    {
+      "name": "John Smith",
+      "role": "Engineer",
+      "affiliation": "The Mars Society"
+    }
+  ],
+
+  "content": "Today we conducted an EVA to ...",  // Main Content of Report; free-form formatted text (e.g., Markdown or lightweight HTML)
+
+  "objectives": "Test EVA protocols and sample collection",  // Optional; Planned goals
+
+  "outcomes": "Successful sample retrieval; protocols refined",  // Optional; Results
+
+  "resource_usage": {  // Optional; Common in analogs for sustainability tracking
+    "water_consumed_liters": 150,
+    "power_used_kwh": 20,
+    "food_stocks_remaining_percent": 80
+  },
+
+  "environmental_data": {  // Optional; e.g., weather, radiation (varies by station)
+    "temperature_c": 25,
+    "wind_speed_kph": 10,
+    "notes": "Clear skies; low dust."
+  },
+
+  "health_and_safety": {  // Optional; can be used for Health & Safety Report.
+      "incidents": [  // Optional; used to classify a reported incident. Other current station procedures should also be followed when reporting an incident.
+        {
+          "type": "Minor Injury",
+          "description": "Crew member twisted ankle during EVA",
+          "severity": "Low",
+          "resolution": "First aid applied; no further issues"
+        }
+      ],
+      "morale_level": "High",  // Optional; String, can be anything. 
+      "medical_notes": "All crew healthy; no illnesses reported",  // Optional; String, can be anything. Be careful to maintain privacy of crewmembers.
+  },
+
+  "metadata": {  // Extensible for custom data.  Further procedures should be established for use.
+    "attachments": ["eva_photo.jpg", "data_log.csv"],
+    "custom": { "hi_seas_specific": "Lava tube mapping status" }  // Station- or mission-specific extensions
+  }
+}

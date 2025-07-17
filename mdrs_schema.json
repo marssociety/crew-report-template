@@ -1,0 +1,167 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "type": "object",
+  "properties": {
+    "report_id": {
+      "type": "string",
+      "description": "Unique ID (renamed from post_id for clarity)"
+    },
+    "title": {
+      "type": "string",
+      "description": "Report title, what you would see as the top heading or browse hyperlink."
+    },
+    "publish_date": {
+      "type": "string",
+      "format": "date-time",
+      "description": "ISO 8601 timestamps used for all dates in this template."
+    },
+    "author": {
+      "type": "string",
+      "description": "Report author"
+    },
+    "station": {
+      "type": "string",
+      "description": "Analog station name (e.g., MDRS, Flashline)"
+    },
+    "mission_name": {
+      "type": "string",
+      "description": "Format can be specific to habitat or crew increment"
+    },
+    "crew_number": {
+      "type": "string",
+      "description": "Integer Crew number, if any."
+    },
+    "mission_type": {
+      "type": "string",
+      "description": "Should be defined in the future"
+    },
+    "mission_start_date": {
+      "type": "string",
+      "format": "date-time",
+      "description": "Start of the mission or crew increment. Can be used with the next field to calculate which date this report covers."
+    },
+    "mission_duration_day": {
+      "type": "integer",
+      "description": "Integer days of the mission or crew increment. For Mars Analogs, this is the same as 'Sol #'"
+    },
+    "report_date": {
+      "type": "string",
+      "format": "date-time",
+      "description": "Specific date this report was covering. Should be same as the above date (Start of mission + sol #)."
+    },
+    "report_type": {
+      "type": "string",
+      "description": "e.g., Commander's Report, EVA Report, End-of-Mission Report, etc."
+    },
+    "categories": {
+      "type": "array",
+      "items": { "type": "string" },
+      "description": "Optional; Array for classification/categories"
+    },
+    "tags": {
+      "type": "array",
+      "items": { "type": "string" },
+      "description": "Optional; Array for keywords"
+    },
+    "crew_members": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "name": { "type": "string" },
+          "role": { "type": "string", "description": "Free string (no enum for universality)" },
+          "affiliation": { "type": "string", "description": "Optional: e.g., university, agency" }
+        },
+        "required": ["name", "role"]
+      },
+      "description": "Optional; Array of crew members and roles. Not necessary for every report. Suitable for crew bios, initial plan, or final mission summary report."
+    },
+    "content": {
+      "type": "string",
+      "description": "Main Content of Report; free-form formatted text (e.g., Markdown or lightweight HTML)"
+    },
+    "objectives": {
+      "type": "string",
+      "description": "Optional; Planned goals"
+    },
+    "outcomes": {
+      "type": "string",
+      "description": "Optional; Results"
+    },
+    "resource_usage": {
+      "type": "object",
+      "properties": {
+        "water_consumed_liters": { "type": "number" },
+        "power_used_kwh": { "type": "number" },
+        "food_stocks_remaining_percent": { "type": "number" }
+      },
+      "additionalProperties": { "type": "number" },
+      "description": "Optional; Common in analogs for sustainability tracking"
+    },
+    "environmental_data": {
+      "type": "object",
+      "properties": {
+        "temperature_c": { "type": "number" },
+        "wind_speed_kph": { "type": "number" },
+        "notes": { "type": "string" }
+      },
+      "additionalProperties": true,
+      "description": "Optional; e.g., weather, radiation (varies by station)"
+    },
+    "health_and_safety": {
+      "type": "object",
+      "properties": {
+        "incidents": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "type": { "type": "string" },
+              "description": { "type": "string" },
+              "severity": { "type": "string" },
+              "resolution": { "type": "string" }
+            }
+          },
+          "description": "Optional; used to classify a reported incident. Other current station procedures should also be followed when reporting an incident."
+        },
+        "morale_level": {
+          "type": "string",
+          "description": "Optional; String, can be anything."
+        },
+        "medical_notes": {
+          "type": "string",
+          "description": "Optional; String, can be anything. Be careful to maintain privacy of crewmembers."
+        }
+      },
+      "additionalProperties": true,
+      "description": "Optional; can be used for Health & Safety Report."
+    },
+    "metadata": {
+      "type": "object",
+      "properties": {
+        "attachments": {
+          "type": "array",
+          "items": { "type": "string" }
+        },
+        "custom": { "type": "object" }
+      },
+      "additionalProperties": true,
+      "description": "Extensible for custom data. Further procedures should be established for use."
+    }
+  },
+  "required": [
+    "report_id",
+    "title",
+    "publish_date",
+    "author",
+    "station",
+    "mission_name",
+    "crew number",
+    "mission_type",
+    "mission_start_date",
+    "mission_duration_day",
+    "report_date",
+    "report_type",
+    "content"
+  ]
+}
