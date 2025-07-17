@@ -1,9 +1,9 @@
 # Crew Report JSON Template for Space Analog Missions
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
-[![GitHub stars](https://img.shields.io/github/stars/yourusername/mdrs-crew-reports)](https://github.com/yourusername/mdrs-crew-reports/stargazers)
-[![GitHub forks](https://img.shields.io/github/forks/yourusername/mdrs-crew-reports)](https://github.com/yourusername/mdrs-crew-reports/network)
-[![GitHub issues](https://img.shields.io/github/issues/yourusername/mdrs-crew-reports)](https://github.com/yourusername/mdrs-crew-reports/issues)
+[![GitHub stars](https://img.shields.io/github/stars/marssociety/crew-report-template)](https://github.com/marssociety/crew-report-template/stargazers)
+[![GitHub forks](https://img.shields.io/github/forks/marssociety/crew-report-template)](https://github.com/marssociety/crew-report-template/network)
+[![GitHub issues](https://img.shields.io/github/issues/marssociety/crew-report-template)](https://github.com/marssociety/crew-report-template/issues)
 [![Contributor Covenant](https://img.shields.io/badge/Contributor%20Covenant-2.1-4baaaa.svg)](CODE_OF_CONDUCT.md)
 
 A standardized JSON schema and template for documenting crew reports in space analog research missions, enabling structured data sharing, archival, and automated scientific analysis across international analog stations.
@@ -111,14 +111,12 @@ We welcome contributions from the analog research community! Whether it's schema
 4. Push to the branch (`git push origin feature/AmazingFeature`).
 5. Open a Pull Request.
 
-Please follow our [Code of Conduct](CODE_OF_CONDUCT.md) and check open issues for ongoing discussions.
-
 ## License
 This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
 
 ## Acknowledgments
-- Inspired by the [International Guidelines and Standards for Space Analogs (IGSA)](https://analogstandards.space/).
+- Inspired by and pending submission to the [International Guidelines and Standards for Space Analogs (IGSA)](https://analogstandards.space/).
 - Built with open-source tools like JSON Schema and Python's `jsonschema` library.
 - Thanks to the Mars Society and analog mission participants for their pioneering work.
 
-For questions or feedback, open an issue or contact [your email or handle].
+For questions or feedback, open an issue or contact [jamesburk](https://github.com/jamesburk) - [Email](mailto:jburk@marssociety.org).
