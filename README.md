@@ -20,6 +20,7 @@ Inspired by guidelines like the [International Guidelines and Standards for Spac
 
 ## Features
 - **JSON Template**: A sample report structure with required and optional fields for easy adoption.
+- **Strict JSON Template**: `crew_report_template_strict.json` is a machine-parseable version of the template, with all comments removed.
 - **JSON Schema**: Validation rules in `report_schema.json` to ensure data consistency.
 - **Validation Script**: A Python script (`validate_crew_report.py`) for checking individual or batch reports against the schema.
 - **Extensibility**: Optional fields and a `metadata` section for station-specific customizations.
@@ -44,9 +45,15 @@ Inspired by guidelines like the [International Guidelines and Standards for Spac
 
 ## Usage
 
-### The Crew Report Template (`crew-report-template.json`)
+### The Crew Report Template
+
+There are two template files provided:
+
+- **`crew_report_template_strict.json`**: This is a strict, machine-parseable JSON file with no comments. Use this as a starting point for creating your own reports or for programmatic processing.
+- **`crew_report_template.json`** (if present): This file contains the same structure but includes comments for human reference. It is not valid JSON and should not be used directly in code.
+
 The template defines a JSON object for a single crew report. It includes:
-- **Required Fields**: Essentials like `report_id`, `title`, `publish_date`, `author`, `station`, `mission_name`, `crew number`, `mission_type`, `mission_start_date`, `mission_duration_day`, `report_date`, `report_type`, and `content`.
+- **Required Fields**: Essentials like `report_id`, `title`, `publish_date`, `author`, `station`, `mission_name`, `crew_number`, `mission_type`, `mission_start_date`, `mission_duration_day`, `report_date`, `report_type`, and `content`.
 - **Optional Fields**: Arrays like `crew_members`, `categories`, `tags`; objects like `resource_usage`, `environmental_data`, `health_and_safety`, `metadata`; and strings like `objectives`, `outcomes`.
 - **Formatting**: The `content` field supports free-form text, including Markdown for rich narratives (e.g., headings, lists, links).
 
@@ -55,10 +62,11 @@ Example snippet:
 {
   "report_id": "123",
   "title": "Sol Summary Report - July 15, 2025",
-  "content": "# Full Report\n\n**Summary:** EVA successful.\n- Objective: Sample collection\n",
-  // ... other fields ...
+  "content": "# Full Report\n\n**Summary:** EVA successful.\n- Objective: Sample collection\n"
 }
 ```
+
+> **Note:** If you copy from `crew_report_template.json`, remove all comments before using in code or validation. For direct use, prefer `crew_report_template_strict.json`.
 
 To create a report:
 1. Copy the template and fill in your data.
@@ -84,12 +92,12 @@ The script (`validate_crew_report.py`) checks reports against the schema. It sup
 Example commands:
 - Validate default file (`reports.json`):
   ```
-  python validate_mdrs_json.py
+  python validate_crew_report.py
   ```
 
 - Validate a custom file:
   ```
-  python validate_mdrs_json.py --data my_reports.json --schema mdrs_schema.json
+  python validate_crew_report.py --data my_reports.json --schema report_schema.json
   ```
 
 Output example:

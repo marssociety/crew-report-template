@@ -156,7 +156,7 @@
     "author",
     "station",
     "mission_name",
-    "crew number",
+    "crew_number",
     "mission_type",
     "mission_start_date",
     "mission_duration_day",

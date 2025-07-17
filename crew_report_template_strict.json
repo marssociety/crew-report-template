@@ -1,0 +1,57 @@
+{
+  "report_id": "123",
+  "title": "Sol Summary Report - July 15, 2025",
+  "publish_date": "2025-07-15T17:45:00Z",
+  "author": "Jane Doe",
+  "station": "MDRS",
+  "mission_name": "MDRS Crew 200",
+  "crew_number": "200",
+  "mission_type": "Mars Analog Simulation",
+  "mission_start_date": "2025-07-11T00:00:00Z",
+  "mission_duration_day": 5,
+  "report_date": "2025-07-15T00:00:00Z",
+  "report_type": "Sol Summary",
+  "categories": ["Operations Report", "Crew Report"],
+  "tags": ["EVA", "Geology"],
+  "crew_members": [
+    {
+      "name": "Jane Doe",
+      "role": "Commander",
+      "affiliation": "NASA"
+    },
+    {
+      "name": "John Smith",
+      "role": "Engineer",
+      "affiliation": "The Mars Society"
+    }
+  ],
+  "content": "Today we conducted an EVA to ...",
+  "objectives": "Test EVA protocols and sample collection",
+  "outcomes": "Successful sample retrieval; protocols refined",
+  "resource_usage": {
+    "water_consumed_liters": 150,
+    "power_used_kwh": 20,
+    "food_stocks_remaining_percent": 80
+  },
+  "environmental_data": {
+    "temperature_c": 25,
+    "wind_speed_kph": 10,
+    "notes": "Clear skies; low dust."
+  },
+  "health_and_safety": {
+    "incidents": [
+      {
+        "type": "Minor Injury",
+        "description": "Crew member twisted ankle during EVA",
+        "severity": "Low",
+        "resolution": "First aid applied; no further issues"
+      }
+    ],
+    "morale_level": "High",
+    "medical_notes": "All crew healthy; no illnesses reported"
+  },
+  "metadata": {
+    "attachments": ["eva_photo.jpg", "data_log.csv"],
+    "custom": { "hi_seas_specific": "Lava tube mapping status" }
+  }
+}
