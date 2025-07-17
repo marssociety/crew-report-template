@@ -10,7 +10,7 @@ A standardized JSON schema and template for documenting crew reports in space an
 
 ## Overview
 
-This project provides a universal JSON template (`crew-report-template.json`) for crew reports from space analog missions, such as those at the Mars Desert Research Station (MDRS), HI-SEAS, or other simulated environments. The template is designed to capture essential mission data in a consistent, machine-readable format, promoting interoperability and collaboration in the analog research community.
+This project provides a universal JSON template (`crew-report-template.json`) for crew reports from space analog missions, such as those at the Mars Desert Research Station (MDRS), Flashline Arctic Research Station, or other simulated environments. The template is designed to capture essential mission data in a consistent, machine-readable format, promoting interoperability and collaboration in the analog research community.
 
 ### Key Goals
 - **Standardized Data Sharing**: Facilitate the exchange and archival of crew reports in a common format, reducing silos between analog stations and research teams.
