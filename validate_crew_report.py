@@ -5,8 +5,8 @@ import argparse
 
 # Set up command-line arguments for flexibility
 parser = argparse.ArgumentParser(description="Validate JSON reports against a schema.")
-parser.add_argument("--schema", default="mdrs_schema.json", help="Path to the schema file (default: mdrs_schema.json)")
-parser.add_argument("--data", default="mdrs_posts.json", help="Path to the JSON data file to validate (default: mdrs_posts.json)")
+parser.add_argument("--schema", default="report_schema.json", help="Path to the schema file (default: mdrs_schema.json)")
+parser.add_argument("--data", default="sample_report.json", help="Path to the JSON data file to validate (default: mdrs_posts.json)")
 args = parser.parse_args()
 
 # Load schema

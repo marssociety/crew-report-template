@@ -20,8 +20,8 @@ Inspired by guidelines like the [International Guidelines and Standards for Spac
 
 ## Features
 - **JSON Template**: A sample report structure with required and optional fields for easy adoption.
-- **JSON Schema**: Validation rules in `mdrs_schema.json` to ensure data consistency.
-- **Validation Script**: A Python script (`validate_mdrs_json.py`) for checking individual or batch reports against the schema.
+- **JSON Schema**: Validation rules in `report_schema.json` to ensure data consistency.
+- **Validation Script**: A Python script (`validate_crew_report.py`) for checking individual or batch reports against the schema.
 - **Extensibility**: Optional fields and a `metadata` section for station-specific customizations.
 
 ## Installation
@@ -33,8 +33,8 @@ Inspired by guidelines like the [International Guidelines and Standards for Spac
 ### Setup
 1. Clone the repository:
    ```
-   git clone https://github.com/yourusername/mdrs-crew-reports.git
-   cd mdrs-crew-reports
+   git clone https://github.com/yourusername/crew-report-template.git
+   cd crew-report-template
    ```
 
 2. (Optional) Install dependencies for validation:
@@ -66,10 +66,10 @@ To create a report:
 3. For batch reports, create an array of these objects in a file like `my_reports.json`.
 
 ### Validating Reports with the Schema and Script
-Use the provided schema (`mdrs_schema.json`) and validation script to ensure your JSON reports conform to the template.
+Use the provided schema (`report_schema.json`) and validation script to ensure your JSON reports conform to the template.
 
 #### Step 1: Prepare Your Data
-- Individual report: Save as a single JSON object (e.g., `single_report.json`).
+- Individual report: Save as a single JSON object (e.g., `sample_report.json`).
 - Batch reports: Use a JSON array (e.g., `reports.json`):
   ```json
   [
@@ -79,10 +79,10 @@ Use the provided schema (`mdrs_schema.json`) and validation script to ensure you
   ```
 
 #### Step 2: Run the Validation Script
-The script (`validate_mdrs_json.py`) checks reports against the schema. It supports command-line arguments for flexibility.
+The script (`validate_crew_report.py`) checks reports against the schema. It supports command-line arguments for flexibility.
 
 Example commands:
-- Validate default file (`mdrs_posts.json`):
+- Validate default file (`reports.json`):
   ```
   python validate_mdrs_json.py
   ```
