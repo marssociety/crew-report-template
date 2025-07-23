@@ -18,6 +18,11 @@ This project provides a universal JSON template (`crew-report-template.json`) fo
 
 Inspired by guidelines like the [International Guidelines and Standards for Space Analogs (IGSA)](https://analogstandards.space/), this template emphasizes flexibility for various mission types while ensuring key elements (e.g., health & safety, resource usage) are captured uniformly.
 
+## Recent Changes
+- **EVA Data Structure**: Added `eva_data` section with planned and actual waypoints, UTM coordinates, sample collection details, and field observations for comprehensive EVA tracking.
+- **Report UUID Field**: Added `report_uuid` field using UUID v4 format for unique identification without requiring central authority coordination.
+- **Equipment Assignment**: Added `equipment_assigned` array to crew members for tracking mesh radios, GPS units, and other equipment assignments per person.
+
 ## Features
 - **JSON Template**: A sample report structure with required and optional fields for easy adoption.
 - **Strict JSON Template**: `crew_report_template_strict.json` is a machine-parseable version of the template, with all comments removed.

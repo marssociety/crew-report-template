@@ -1,5 +1,6 @@
 {
   "report_id": "123",
+  "report_uuid": "550e8400-e29b-41d4-a716-446655440000",
   "title": "Sol Summary Report - July 15, 2025",
   "publish_date": "2025-07-15T17:45:00Z",
   "author": "Jane Doe",
@@ -17,14 +18,88 @@
     {
       "name": "Jane Doe",
       "role": "Commander",
-      "affiliation": "NASA"
+      "affiliation": "NASA",
+      "equipment_assigned": [
+        {
+          "equipment_id": "MESH_RADIO_001",
+          "equipment_type": "mesh_radio",
+          "equipment_name": "Radio Alpha",
+          "notes": "Primary communication device for EVA"
+        },
+        {
+          "equipment_id": "GPS_UNIT_003",
+          "equipment_type": "gps_tracker",
+          "equipment_name": "GPS Charlie"
+        }
+      ]
     },
     {
       "name": "John Smith",
       "role": "Engineer",
-      "affiliation": "The Mars Society"
+      "affiliation": "The Mars Society",
+      "equipment_assigned": [
+        {
+          "equipment_id": "MESH_RADIO_002",
+          "equipment_type": "mesh_radio",
+          "equipment_name": "Radio Bravo"
+        }
+      ]
     }
   ],
+  "eva_data": {
+    "planned_waypoints": [
+      {
+        "waypoint_id": "WP001",
+        "name": "Sample Site Alpha",
+        "utm_coordinates": {
+          "zone": "12S",
+          "easting": 412345,
+          "northing": 4321098,
+          "elevation_m": 1420
+        },
+        "planned_activities": ["geological_sample", "photography"],
+        "estimated_duration_minutes": 30,
+        "assigned_crew": ["Jane Doe", "John Smith"]
+      }
+    ],
+    "actual_waypoints": [
+      {
+        "waypoint_id": "WP001",
+        "name": "Sample Site Alpha",
+        "utm_coordinates": {
+          "zone": "12S",
+          "easting": 412347,
+          "northing": 4321095,
+          "elevation_m": 1418
+        },
+        "activities_completed": [
+          {
+            "type": "geological_sample",
+            "method": "drilling",
+            "collection_type": "sterile",
+            "desired_result": "Mineral composition analysis",
+            "actual_result": "3 core samples collected successfully",
+            "notes": "Slightly harder rock than expected",
+            "crew_member": "Jane Doe"
+          }
+        ],
+        "observations": [
+          {
+            "type": "geological_feature",
+            "description": "Raised rock bed formation - possible sedimentary layers",
+            "coordinates": {
+              "zone": "12S",
+              "easting": 412350,
+              "northing": 4321100
+            },
+            "observer": "John Smith"
+          }
+        ],
+        "duration_minutes": 35,
+        "crew_present": ["Jane Doe", "John Smith"]
+      }
+    ]
+  },
   "content": "Today we conducted an EVA to ...",
   "objectives": "Test EVA protocols and sample collection",
   "outcomes": "Successful sample retrieval; protocols refined",

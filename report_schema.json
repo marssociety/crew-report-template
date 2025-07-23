@@ -6,6 +6,11 @@
       "type": "string",
       "description": "Unique ID (renamed from post_id for clarity)"
     },
+    "report_uuid": {
+      "type": "string",
+      "format": "uuid",
+      "description": "UUID v4 for unique identification without central authority"
+    },
     "title": {
       "type": "string",
       "description": "Report title, what you would see as the top heading or browse hyperlink."
@@ -72,9 +77,127 @@
           "role": { "type": "string", "description": "Free string (no enum for universality)" },
           "affiliation": { "type": "string", "description": "Optional: e.g., university, agency" }
         },
-        "required": ["name", "role"]
+        "required": ["name", "role"],
+        "properties": {
+          "name": { "type": "string" },
+          "role": { "type": "string", "description": "Free string (no enum for universality)" },
+          "affiliation": { "type": "string", "description": "Optional: e.g., university, agency" },
+          "equipment_assigned": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "equipment_id": { "type": "string" },
+                "equipment_type": { "type": "string" },
+                "equipment_name": { "type": "string" },
+                "notes": { "type": "string" }
+              },
+              "required": ["equipment_id", "equipment_type", "equipment_name"]
+            }
+          }
+        }
       },
       "description": "Optional; Array of crew members and roles. Not necessary for every report. Suitable for crew bios, initial plan, or final mission summary report."
+    },
+    "eva_data": {
+      "type": "object",
+      "properties": {
+        "planned_waypoints": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "waypoint_id": { "type": "string" },
+              "name": { "type": "string" },
+              "utm_coordinates": {
+                "type": "object",
+                "properties": {
+                  "zone": { "type": "string" },
+                  "easting": { "type": "number" },
+                  "northing": { "type": "number" },
+                  "elevation_m": { "type": "number" }
+                },
+                "required": ["zone", "easting", "northing"]
+              },
+              "planned_activities": {
+                "type": "array",
+                "items": { "type": "string" }
+              },
+              "estimated_duration_minutes": { "type": "number" },
+              "assigned_crew": {
+                "type": "array",
+                "items": { "type": "string" }
+              }
+            },
+            "required": ["waypoint_id", "name", "utm_coordinates"]
+          }
+        },
+        "actual_waypoints": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "waypoint_id": { "type": "string" },
+              "name": { "type": "string" },
+              "utm_coordinates": {
+                "type": "object",
+                "properties": {
+                  "zone": { "type": "string" },
+                  "easting": { "type": "number" },
+                  "northing": { "type": "number" },
+                  "elevation_m": { "type": "number" }
+                },
+                "required": ["zone", "easting", "northing"]
+              },
+              "activities_completed": {
+                "type": "array",
+                "items": {
+                  "type": "object",
+                  "properties": {
+                    "type": { "type": "string" },
+                    "method": { "type": "string" },
+                    "collection_type": { "type": "string" },
+                    "desired_result": { "type": "string" },
+                    "actual_result": { "type": "string" },
+                    "notes": { "type": "string" },
+                    "crew_member": { "type": "string" }
+                  },
+                  "required": ["type"]
+                }
+              },
+              "observations": {
+                "type": "array",
+                "items": {
+                  "type": "object",
+                  "properties": {
+                    "type": { "type": "string" },
+                    "description": { "type": "string" },
+                    "coordinates": {
+                      "type": "object",
+                      "properties": {
+                        "zone": { "type": "string" },
+                        "easting": { "type": "number" },
+                        "northing": { "type": "number" },
+                        "elevation_m": { "type": "number" }
+                      },
+                      "required": ["zone", "easting", "northing"]
+                    },
+                    "observer": { "type": "string" }
+                  },
+                  "required": ["type", "description"]
+                }
+              },
+              "duration_minutes": { "type": "number" },
+              "crew_present": {
+                "type": "array",
+                "items": { "type": "string" }
+              }
+            },
+            "required": ["waypoint_id", "name", "utm_coordinates"]
+          }
+        }
+      },
+      "description": "Optional; EVA planning and execution data"
     },
     "content": {
       "type": "string",
