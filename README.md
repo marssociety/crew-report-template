@@ -10,7 +10,7 @@ A standardized JSON schema and template for documenting crew reports in space an
 
 ## Overview
 
-This project provides a universal JSON template (`crew-report-template.json`) for crew reports from space analog missions, such as those at the Mars Desert Research Station (MDRS), HI-SEAS, or other simulated environments. The template is designed to capture essential mission data in a consistent, machine-readable format, promoting interoperability and collaboration in the analog research community.
+This project provides a universal JSON template (`crew-report-template.json`) for crew reports from space analog missions, such as those at the Mars Desert Research Station (MDRS), Flashline Arctic Research Station, or other simulated environments. The template is designed to capture essential mission data in a consistent, machine-readable format, promoting interoperability and collaboration in the analog research community.
 
 ### Key Goals
 - **Standardized Data Sharing**: Facilitate the exchange and archival of crew reports in a common format, reducing silos between analog stations and research teams.
@@ -34,7 +34,7 @@ Inspired by guidelines like the [International Guidelines and Standards for Spac
 ### Setup
 1. Clone the repository:
    ```
-   git clone https://github.com/yourusername/crew-report-template.git
+   git clone https://github.com/marssociety/crew-report-template.git
    cd crew-report-template
    ```
 
@@ -71,7 +71,7 @@ Example snippet:
 To create a report:
 1. Copy the template and fill in your data.
 2. Ensure dates use ISO 8601 format (e.g., "2025-07-15T17:45:00Z").
-3. For batch reports, create an array of these objects in a file like `my_reports.json`.
+3. For batch reports, create an array of these objects in a file like `reports.json`.
 
 ### Validating Reports with the Schema and Script
 Use the provided schema (`report_schema.json`) and validation script to ensure your JSON reports conform to the template.
