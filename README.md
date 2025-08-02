@@ -55,7 +55,7 @@ Inspired by guidelines like the [International Guidelines and Standards for Spac
 There are two template files provided:
 
 - **`crew_report_template_strict.json`**: This is a strict, machine-parseable JSON file with no comments. Use this as a starting point for creating your own reports or for programmatic processing.
-- **`crew_report_template.json`** (if present): This file contains the same structure but includes comments for human reference. It is not valid JSON and should not be used directly in code.
+- **`crew_report_template.jsonc`** (if present): This file contains the same structure but includes comments for human reference. It is not valid JSON and should not be used directly in code.
 
 The template defines a JSON object for a single crew report. It includes:
 - **Required Fields**: Essentials like `report_id`, `title`, `publish_date`, `author`, `station`, `mission_name`, `crew_number`, `mission_type`, `mission_start_date`, `mission_duration_day`, `report_date`, `report_type`, and `content`.
