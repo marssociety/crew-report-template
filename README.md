@@ -130,6 +130,6 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 ## Acknowledgments
 - Inspired by and pending submission to the [International Guidelines and Standards for Space Analogs (IGSA)](https://analogstandards.space/).
 - Built with open-source tools like JSON Schema and Python's `jsonschema` library.
-- Thanks to the Mars Society and analog mission participants for their pioneering work.
+- Thanks to the Mars Society and analog mission participants for their pioneering work. This project was also inspired by the long-standing Mars Society ethos of "Hard Work, No Pay, Eternal Glory."
 
 For questions or feedback, open an issue or contact [jamesburk](https://github.com/jamesburk) - [Email](mailto:jburk@marssociety.org).
