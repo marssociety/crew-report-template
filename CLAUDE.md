@@ -29,12 +29,21 @@ This is a standardized JSON schema and template project for documenting crew rep
 
 The JSON template defines structured crew reports with:
 
-**Required Fields:**
+**Required Envelope Fields:**
 - `report_id`, `title`, `publish_date`, `author`, `station`, `mission_name`, `crew_number`, `mission_type`, `mission_start_date`, `mission_duration_day`, `report_date`, `report_type`, `content`
 
+**Report Type Enum:**
+- `sol_summary`, `operations`, `greenhab`, `eva_report`, `eva_request`, `journalist`, `astronomy`, `photos`, `hso_checklist`, `science`, `end_of_mission`, `checkout`, `food_inventory`
+
+**Role-Specific Data (`role_specific_data`):**
+- Top-level field containing typed, validated fields specific to each `report_type`
+- Schema is enforced via JSON Schema `if/then` discriminated union on `report_type`
+- Each report type maps to a defined sub-schema in `report_schema.json` under `definitions`
+- Use `metadata.custom` only for truly ad-hoc or station-specific extensions
+
 **Optional Fields:**
-- `crew_members` (array), `categories`, `tags`, `objectives`, `outcomes`  
-- `resource_usage`, `environmental_data`, `health_and_safety`, `metadata` (objects)
+- `report_uuid`, `crew_members` (array), `categories`, `tags`, `objectives`, `outcomes`
+- `eva_data` (waypoint-level EVA detail), `resource_usage`, `environmental_data`, `health_and_safety`, `metadata` (objects)
 
 **Date Format:** All dates use ISO 8601 format (e.g., "2025-07-15T17:45:00Z")
 
@@ -46,10 +55,12 @@ The JSON template defines structured crew reports with:
 - Use the validation script before committing changes to template files
 - Single reports should be JSON objects; batch reports should be JSON arrays
 - The `.jsonc` template file contains comments and is not valid JSON - use `crew_report_template_strict.json` for programmatic work
+- When `role_specific_data` is present, it is validated against the sub-schema matching the `report_type` value
 
 ## Development Notes
 
 - This is a data template project, not a software application
 - Focus on JSON schema correctness and template usability
 - The project aims for interoperability across different analog research stations
-- Extensions should use the `metadata.custom` field for station-specific data
+- Typed role-specific fields go in `role_specific_data`; truly ad-hoc extensions go in `metadata.custom`
+- Sub-schemas for each report type are defined in `report_schema.json` under `definitions`

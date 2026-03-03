@@ -19,6 +19,10 @@ This project provides a universal JSON template (`crew-report-template.json`) fo
 Inspired by guidelines like the [International Guidelines and Standards for Space Analogs (IGSA)](https://analogstandards.space/), this template emphasizes flexibility for various mission types while ensuring key elements (e.g., health & safety, resource usage) are captured uniformly.
 
 ## Recent Changes
+- **Role-Specific Data (`role_specific_data`)**: New top-level field for typed, validated data specific to each report type. Replaces the pattern of stuffing role-specific fields into `metadata.custom`. The schema uses a discriminated union (`if/then` on `report_type`) so each report type has its own validated sub-schema with `additionalProperties: false`.
+- **Extended `report_type` Enum**: Replaced the generic report type with 13 MDRS-specific types: `sol_summary`, `operations`, `greenhab`, `eva_report`, `eva_request`, `journalist`, `astronomy`, `photos`, `hso_checklist`, `science`, `end_of_mission`, `checkout`, `food_inventory`.
+- **Typed Sub-Schemas**: Each report type has a defined schema under `definitions` in `report_schema.json`, covering fields like rover readings (operations), watering times and harvests (greenhab), equipment check matrices (hso_checklist), food inventory categories, and more.
+- **Code of Conduct**: Updated to the Mars Society Volunteer Code of Conduct.
 - **EVA Data Structure**: Added `eva_data` section with planned and actual waypoints, UTM coordinates, sample collection details, and field observations for comprehensive EVA tracking.
 - **Report UUID Field**: Added `report_uuid` field using UUID v4 format for unique identification without requiring central authority coordination.
 - **Equipment Assignment**: Added `equipment_assigned` array to crew members for tracking mesh radios, GPS units, and other equipment assignments per person.
@@ -26,9 +30,9 @@ Inspired by guidelines like the [International Guidelines and Standards for Spac
 ## Features
 - **JSON Template**: A sample report structure with required and optional fields for easy adoption.
 - **Strict JSON Template**: `crew_report_template_strict.json` is a machine-parseable version of the template, with all comments removed.
-- **JSON Schema**: Validation rules in `report_schema.json` to ensure data consistency.
+- **JSON Schema**: Validation rules in `report_schema.json` to ensure data consistency, including conditional validation of `role_specific_data` based on `report_type`.
 - **Validation Script**: A Python script (`validate_crew_report.py`) for checking individual or batch reports against the schema.
-- **Extensibility**: Optional fields and a `metadata` section for station-specific customizations.
+- **Extensibility**: Typed role-specific fields go in `role_specific_data`; truly ad-hoc or station-specific extensions go in `metadata.custom`.
 
 ## Installation
 
@@ -58,16 +62,25 @@ There are two template files provided:
 - **`crew_report_template.jsonc`** (if present): This file contains the same structure but includes comments for human reference. It is not valid JSON and should not be used directly in code.
 
 The template defines a JSON object for a single crew report. It includes:
-- **Required Fields**: Essentials like `report_id`, `title`, `publish_date`, `author`, `station`, `mission_name`, `crew_number`, `mission_type`, `mission_start_date`, `mission_duration_day`, `report_date`, `report_type`, and `content`.
-- **Optional Fields**: Arrays like `crew_members`, `categories`, `tags`; objects like `resource_usage`, `environmental_data`, `health_and_safety`, `metadata`; and strings like `objectives`, `outcomes`.
+- **Required Envelope Fields**: `report_id`, `title`, `publish_date`, `author`, `station`, `mission_name`, `crew_number`, `mission_type`, `mission_start_date`, `mission_duration_day`, `report_date`, `report_type`, and `content`.
+- **Role-Specific Data**: `role_specific_data` — typed fields validated per `report_type` (e.g., rover readings for operations, harvests for greenhab, equipment checks for hso_checklist).
+- **Optional Fields**: Arrays like `crew_members`, `categories`, `tags`; objects like `eva_data`, `resource_usage`, `environmental_data`, `health_and_safety`, `metadata`; and strings like `objectives`, `outcomes`.
 - **Formatting**: The `content` field supports free-form text, including Markdown for rich narratives (e.g., headings, lists, links).
 
 Example snippet:
 ```json
 {
   "report_id": "123",
-  "title": "Sol Summary Report - July 15, 2025",
-  "content": "# Full Report\n\n**Summary:** EVA successful.\n- Objective: Sample collection\n"
+  "report_type": "operations",
+  "title": "Operations Report - Sol 5",
+  "content": "Normal operations today. All systems nominal.",
+  "role_specific_data": {
+    "non_nominal_systems": "None",
+    "main_tank_level": "75%",
+    "rovers": [
+      { "rover_name": "Spirit", "rover_used": "Yes", "hours": "152.3" }
+    ]
+  }
 }
 ```
 

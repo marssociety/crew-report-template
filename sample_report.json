@@ -1,6 +1,7 @@
 {
   "report_id": "123",
-  "title": "Sol Summary Report - July 15, 2025",
+  "report_uuid": "550e8400-e29b-41d4-a716-446655440000",
+  "title": "Sol Summary Report - Sol 5",
   "publish_date": "2025-07-15T17:45:00Z",
   "author": "Jane Doe",
   "station": "MDRS",
@@ -10,7 +11,19 @@
   "mission_start_date": "2025-07-11T00:00:00Z",
   "mission_duration_day": 5,
   "report_date": "2025-07-15T00:00:00Z",
-  "report_type": "Sol Summary",
+  "report_type": "sol_summary",
+  "role_specific_data": {
+    "summary_title": "Sol 5 - EVA and Geology Day",
+    "mission_status": "Nominal",
+    "sol_activity_summary": "Conducted EVA to collect geological samples and test new protocols. The team performed exceptionally well, and all objectives were met.",
+    "look_ahead_plan": "Sol 6: Continue geological survey at Site B, GreenHab harvest, astronomy observations",
+    "anomalies": "None",
+    "weather": "Clear skies, low dust, 25C, 10 kph winds",
+    "crew_physical_status": "All crew healthy; no illnesses reported",
+    "eva": "EVA #3 completed successfully. 3 core samples collected from Site Alpha.",
+    "reports_to_be_filed": "EVA Report, GreenHab Report",
+    "support_requested": "None at this time"
+  },
   "categories": ["Operations Report", "Crew Report"],
   "tags": ["EVA", "Geology"],
   "crew_members": [
@@ -52,6 +65,6 @@
   },
   "metadata": {
     "attachments": ["eva_photo.jpg", "data_log.csv"],
-    "custom": { "hi_seas_specific": "Lava tube mapping status" }
+    "custom": {}
   }
 }

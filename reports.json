@@ -1,109 +1,215 @@
 [
-    {
-      "report_id": "123",
-      "title": "Sol Summary Report - July 15, 2025",
-      "publish_date": "2025-07-15T17:45:00Z",
-      "author": "Jane Doe",
-      "station": "MDRS",
-      "mission_name": "MDRS Crew 200",
-      "crew_number": "200",
-      "mission_type": "Mars Analog Simulation",
-      "mission_start_date": "2025-07-11T00:00:00Z",
-      "mission_duration_day": 5,
-      "report_date": "2025-07-15T00:00:00Z",
-      "report_type": "Sol Summary",
-      "categories": ["Operations Report", "Crew Report"],
-      "tags": ["EVA", "Geology"],
-      "crew_members": [
-        {
-          "name": "Jane Doe",
-          "role": "Commander",
-          "affiliation": "NASA"
-        },
-        {
-          "name": "John Smith",
-          "role": "Engineer",
-          "affiliation": "The Mars Society"
-        }
-      ],
-      "content": "Today we conducted an EVA to collect geological samples and test new protocols. The team performed exceptionally well, and all objectives were met.",
-      "objectives": "Test EVA protocols and sample collection",
-      "outcomes": "Successful sample retrieval; protocols refined",
-      "resource_usage": {
-        "water_consumed_liters": 150,
-        "power_used_kwh": 20,
-        "food_stocks_remaining_percent": 80
-      },
-      "environmental_data": {
-        "temperature_c": 25,
-        "wind_speed_kph": 10,
-        "notes": "Clear skies; low dust."
-      },
-      "health_and_safety": {
-        "incidents": [
-          {
-            "type": "Minor Injury",
-            "description": "Crew member twisted ankle during EVA",
-            "severity": "Low",
-            "resolution": "First aid applied; no further issues"
-          }
-        ],
-        "morale_level": "High",
-        "medical_notes": "All crew healthy; no illnesses reported"
-      },
-      "metadata": {
-        "attachments": ["eva_photo.jpg", "data_log.csv"],
-        "custom": { "hi_seas_specific": "Lava tube mapping status" }
-      }
+  {
+    "report_id": "123",
+    "report_uuid": "550e8400-e29b-41d4-a716-446655440000",
+    "title": "Sol Summary Report - Sol 5",
+    "publish_date": "2025-07-15T17:45:00Z",
+    "author": "Jane Doe",
+    "station": "MDRS",
+    "mission_name": "MDRS Crew 200",
+    "crew_number": "200",
+    "mission_type": "Mars Analog Simulation",
+    "mission_start_date": "2025-07-11T00:00:00Z",
+    "mission_duration_day": 5,
+    "report_date": "2025-07-15T00:00:00Z",
+    "report_type": "sol_summary",
+    "role_specific_data": {
+      "summary_title": "Sol 5 - EVA and Geology Day",
+      "mission_status": "Nominal",
+      "sol_activity_summary": "Conducted EVA to collect geological samples and test new protocols. The team performed exceptionally well, and all objectives were met.",
+      "look_ahead_plan": "Sol 6: Continue geological survey at Site B",
+      "anomalies": "None",
+      "weather": "Clear skies, 25C, 10 kph winds",
+      "crew_physical_status": "All crew healthy",
+      "eva": "EVA #3 completed successfully",
+      "reports_to_be_filed": "EVA Report, GreenHab Report",
+      "support_requested": "None"
     },
-    {
-      "report_id": "124",
-      "title": "EVA Report - July 16, 2025",
-      "publish_date": "2025-07-16T18:00:00Z",
-      "author": "John Smith",
-      "station": "MDRS",
-      "mission_name": "MDRS Crew 200",
-      "crew_number": "200",
-      "mission_type": "Mars Analog Simulation",
-      "mission_start_date": "2025-07-11T00:00:00Z",
-      "mission_duration_day": 6,
-      "report_date": "2025-07-16T00:00:00Z",
-      "report_type": "EVA Report",
-      "categories": ["EVA", "Science"],
-      "tags": ["Sample Collection", "Field Work"],
-      "crew_members": [
+    "categories": ["Operations Report", "Crew Report"],
+    "tags": ["EVA", "Geology"],
+    "crew_members": [
+      {
+        "name": "Jane Doe",
+        "role": "Commander",
+        "affiliation": "NASA"
+      },
+      {
+        "name": "John Smith",
+        "role": "Engineer",
+        "affiliation": "The Mars Society"
+      }
+    ],
+    "content": "Today we conducted an EVA to collect geological samples and test new protocols. The team performed exceptionally well, and all objectives were met.",
+    "objectives": "Test EVA protocols and sample collection",
+    "outcomes": "Successful sample retrieval; protocols refined",
+    "resource_usage": {
+      "water_consumed_liters": 150,
+      "power_used_kwh": 20,
+      "food_stocks_remaining_percent": 80
+    },
+    "environmental_data": {
+      "temperature_c": 25,
+      "wind_speed_kph": 10,
+      "notes": "Clear skies; low dust."
+    },
+    "health_and_safety": {
+      "incidents": [
         {
-          "name": "John Smith",
-          "role": "Engineer",
-          "affiliation": "The Mars Society"
-        },
-        {
-          "name": "Jane Doe",
-          "role": "Commander",
-          "affiliation": "NASA"
+          "type": "Minor Injury",
+          "description": "Crew member twisted ankle during EVA",
+          "severity": "Low",
+          "resolution": "First aid applied; no further issues"
         }
       ],
-      "content": "EVA focused on collecting rock samples from Site B. All equipment functioned as expected. No incidents reported.",
-      "objectives": "Collect rock samples from Site B",
-      "outcomes": "Collected 5 samples; all equipment nominal",
-      "resource_usage": {
-        "water_consumed_liters": 120,
-        "power_used_kwh": 18,
-        "food_stocks_remaining_percent": 78
-      },
-      "environmental_data": {
-        "temperature_c": 23,
-        "wind_speed_kph": 8,
-        "notes": "Mild winds; temperature comfortable."
-      },
-      "health_and_safety": {
-        "incidents": [],
-        "morale_level": "Very High",
-        "medical_notes": "No health issues reported"
-      },
-      "metadata": {
-        "attachments": ["siteb_samples.jpg"],
-        "custom": { "eva_number": 2 }
-      }
+      "morale_level": "High",
+      "medical_notes": "All crew healthy; no illnesses reported"
+    },
+    "metadata": {
+      "attachments": ["eva_photo.jpg", "data_log.csv"],
+      "custom": {}
     }
-  ]
+  },
+  {
+    "report_id": "124",
+    "report_uuid": "660e8400-e29b-41d4-a716-446655440001",
+    "title": "EVA Report #3 - Sol 5",
+    "publish_date": "2025-07-15T18:00:00Z",
+    "author": "John Smith",
+    "station": "MDRS",
+    "mission_name": "MDRS Crew 200",
+    "crew_number": "200",
+    "mission_type": "Mars Analog Simulation",
+    "mission_start_date": "2025-07-11T00:00:00Z",
+    "mission_duration_day": 5,
+    "report_date": "2025-07-15T00:00:00Z",
+    "report_type": "eva_report",
+    "role_specific_data": {
+      "eva_number": "3",
+      "purpose": "Collect rock samples from Site Alpha and test new sample collection protocols",
+      "start_time": "09:30",
+      "end_time": "11:45",
+      "narrative": "EVA focused on collecting rock samples from Site Alpha. All equipment functioned as expected. Three core samples collected using sterile drilling method. Observed raised rock bed formation with possible sedimentary layers. No incidents reported.",
+      "destination": "Sample Site Alpha",
+      "coord_easting": "412345",
+      "coord_northing": "4321098",
+      "participants": "John Smith, Jane Doe",
+      "routes": "Hab -> North Trail -> Site Alpha -> return via same route",
+      "mode_of_travel": "Rover (Spirit)"
+    },
+    "categories": ["EVA", "Science"],
+    "tags": ["Sample Collection", "Field Work", "Geology"],
+    "content": "EVA #3 focused on collecting rock samples from Site Alpha. All equipment functioned as expected. No incidents reported.",
+    "objectives": "Collect rock samples from Site Alpha",
+    "outcomes": "Collected 3 core samples; all equipment nominal",
+    "eva_data": {
+      "planned_waypoints": [
+        {
+          "waypoint_id": "WP001",
+          "name": "Sample Site Alpha",
+          "utm_coordinates": {
+            "zone": "12S",
+            "easting": 412345,
+            "northing": 4321098,
+            "elevation_m": 1420
+          },
+          "planned_activities": ["geological_sample", "photography"],
+          "estimated_duration_minutes": 30,
+          "assigned_crew": ["John Smith", "Jane Doe"]
+        }
+      ],
+      "actual_waypoints": [
+        {
+          "waypoint_id": "WP001",
+          "name": "Sample Site Alpha",
+          "utm_coordinates": {
+            "zone": "12S",
+            "easting": 412347,
+            "northing": 4321095,
+            "elevation_m": 1418
+          },
+          "activities_completed": [
+            {
+              "type": "geological_sample",
+              "method": "drilling",
+              "collection_type": "sterile",
+              "desired_result": "Mineral composition analysis",
+              "actual_result": "3 core samples collected successfully",
+              "notes": "Slightly harder rock than expected",
+              "crew_member": "John Smith"
+            }
+          ],
+          "observations": [
+            {
+              "type": "geological_feature",
+              "description": "Raised rock bed formation - possible sedimentary layers",
+              "coordinates": {
+                "zone": "12S",
+                "easting": 412350,
+                "northing": 4321100
+              },
+              "observer": "Jane Doe"
+            }
+          ],
+          "duration_minutes": 135,
+          "crew_present": ["John Smith", "Jane Doe"]
+        }
+      ]
+    },
+    "resource_usage": {
+      "water_consumed_liters": 8,
+      "power_used_kwh": 3
+    },
+    "health_and_safety": {
+      "incidents": [],
+      "morale_level": "Very High",
+      "medical_notes": "No health issues reported"
+    },
+    "metadata": {
+      "attachments": ["sitealpha_samples.jpg", "eva3_track.gpx"],
+      "custom": {}
+    }
+  },
+  {
+    "report_id": "125",
+    "report_uuid": "770e8400-e29b-41d4-a716-446655440002",
+    "title": "GreenHab Report - Sol 5",
+    "publish_date": "2025-07-15T16:30:00Z",
+    "author": "Maria Garcia",
+    "station": "MDRS",
+    "mission_name": "MDRS Crew 200",
+    "crew_number": "200",
+    "mission_type": "Mars Analog Simulation",
+    "mission_start_date": "2025-07-11T00:00:00Z",
+    "mission_duration_day": 5,
+    "report_date": "2025-07-15T00:00:00Z",
+    "report_type": "greenhab",
+    "role_specific_data": {
+      "environmental_control": "Fan on, heater on (night cycle)",
+      "avg_temperature": "22C",
+      "max_temperature": "28C",
+      "min_temperature": "15C",
+      "supplemental_light_hours": 4,
+      "daily_water_usage_crops": "15 liters",
+      "daily_water_usage_other": "2 liters (research)",
+      "blue_tank_remaining": 145,
+      "watering_times": ["07:00", "12:00", "17:00"],
+      "crops_changes": "Tomato plants showing first fruit; basil harvested",
+      "narrative": "Good growing day. Temperatures remained within acceptable range. Tomato plants are thriving and showing first fruit development. Harvested basil for crew dinner. Lettuce seedlings progressing well. No pest issues observed.",
+      "harvests": [
+        {
+          "crop": "Basil",
+          "mass": "45g"
+        }
+      ],
+      "support_needed": "None",
+      "attached_pictures": true
+    },
+    "categories": ["GreenHab", "Science"],
+    "tags": ["Agriculture", "Harvest"],
+    "content": "Good growing day in the GreenHab. Tomato plants showing first fruit. Basil harvested for crew dinner.",
+    "metadata": {
+      "attachments": ["greenhab_sol5.jpg"],
+      "custom": {}
+    }
+  }
+]

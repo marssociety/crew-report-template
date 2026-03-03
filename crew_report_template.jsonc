@@ -5,7 +5,7 @@
 
   "report_uuid": "550e8400-e29b-41d4-a716-446655440000",  // UUID v4 for unique identification without central authority
 
-  "title": "Sol Summary Report - July 15, 2025",  // Report title, what you would see as the top heading or browse hyperlink.
+  "title": "Operations Report - Sol 5",  // Report title, what you would see as the top heading or browse hyperlink.
 
   "publish_date": "2025-07-15T17:45:00Z",  // ISO 8601 timestamps used for all dates in this template.
 
@@ -19,17 +19,79 @@
 
   "mission_type": "Mars Analog Simulation",  // Should be defined in the future
 
-  "mission_start_date": "2025-07-11T00:00:00Z",  // Start of the mission or crew increment.  Can be used with the next field to calculate which date this report covers.
+  "mission_start_date": "2025-07-11T00:00:00Z",  // Start of the mission or crew increment. Can be used with the next field to calculate which date this report covers.
 
-  "mission_duration_day": 5,  // Integer days of the mission or crew increment.  For Mars Analogs, this is the same as "Sol #"
+  "mission_duration_day": 5,  // Integer days of the mission or crew increment. For Mars Analogs, this is the same as "Sol #"
 
   "report_date": "2025-07-15T00:00:00Z",  // Specific date this report was covering. Should be same as the above date (Start of mission + sol #).
 
-  "report_type": "Sol Summary",  // e.g., Commander's Report, EVA Report, End-of-Mission Report, etc.
+  "report_type": "operations",  // Enum: sol_summary, operations, greenhab, eva_report, eva_request, journalist, astronomy, photos, hso_checklist, science, end_of_mission, checkout, food_inventory
+
+  // NEW: Typed, role-specific data. Schema is determined by report_type value.
+  // Each report_type maps to a specific set of validated fields here.
+  // Use metadata.custom for truly ad-hoc or station-specific extensions.
+  "role_specific_data": {
+    "non_nominal_systems": "None",
+    "notes_on_non_nominal": "",
+    "general_notes_on_rovers": "All rovers nominal",
+    "summary_of_hab_operations": "Normal operations throughout the day",
+    "water_use": "Nominal",
+    "main_tank_level": "75%",
+    "main_water_tank_pipe_heater": "ON",
+    "main_water_tank_heater": "OFF",
+    "toilet_tank_emptied": "NO",
+    "summary_of_internet": "Stable connection, no issues",
+    "summary_of_suits_and_radios": "All suits and radios operational",
+    "summary_of_greenhab": "See GreenHab report",
+    "greenhab_water_use_gallons": 8.5,
+    "greenhab_heater": "ON",
+    "greenhab_supplemental_light": "4 hours",
+    "greenhab_harvest": "None today",
+    "summary_of_sciencedome": "In use for geology analysis",
+    "dual_split": "Heat",
+    "summary_of_ram": "Organized and clean",
+    "summary_of_observatory": "Clear skies, observations planned",
+    "summary_of_health_safety": "No issues",
+    "questions_to_mission_support": "None at this time",
+    "rovers": [
+      {
+        "rover_name": "Spirit",
+        "rover_used": "Yes",
+        "hours": "152.3",
+        "beginning_charge": "100%",
+        "ending_charge": "68%",
+        "currently_charging": "Yes"
+      },
+      {
+        "rover_name": "Opportunity",
+        "rover_used": "No",
+        "hours": "98.1",
+        "beginning_charge": "100%",
+        "ending_charge": "100%",
+        "currently_charging": "No"
+      },
+      {
+        "rover_name": "Curiosity",
+        "rover_used": "No",
+        "hours": "201.5",
+        "beginning_charge": "95%",
+        "ending_charge": "95%",
+        "currently_charging": "Yes"
+      },
+      {
+        "rover_name": "Perseverance",
+        "rover_used": "Yes",
+        "hours": "75.8",
+        "beginning_charge": "100%",
+        "ending_charge": "72%",
+        "currently_charging": "Yes"
+      }
+    ]
+  },
 
   "categories": ["Operations Report", "Crew Report"],  // Optional; Array for classification/categories
 
-  "tags": ["EVA", "Geology"],  // Optional; Array for keywords
+  "tags": ["Rovers", "Systems"],  // Optional; Array for keywords
 
   "crew_members": [  // Optional; Array of crew members and roles. Not necessary for every report. Suitable for crew bios, initial plan, or final mission summary report.
     {
@@ -64,7 +126,7 @@
     }
   ],
 
-  "eva_data": {  // Optional; EVA planning and execution data
+  "eva_data": {  // Optional; EVA planning and execution data with waypoint-level detail
     "planned_waypoints": [
       {
         "waypoint_id": "WP001",
@@ -119,11 +181,11 @@
     ]
   },
 
-  "content": "Today we conducted an EVA to ...",  // Main Content of Report; free-form formatted text (e.g., Markdown or lightweight HTML)
+  "content": "Normal operations today. Spirit and Perseverance used for EVA support. All systems nominal.",  // Main Content of Report; free-form formatted text (e.g., Markdown or lightweight HTML)
 
-  "objectives": "Test EVA protocols and sample collection",  // Optional; Planned goals
+  "objectives": "Maintain station systems and support EVA operations",  // Optional; Planned goals
 
-  "outcomes": "Successful sample retrieval; protocols refined",  // Optional; Results
+  "outcomes": "All systems nominal; EVA support successful",  // Optional; Results
 
   "resource_usage": {  // Optional; Common in analogs for sustainability tracking
     "water_consumed_liters": 150,
@@ -138,20 +200,13 @@
   },
 
   "health_and_safety": {  // Optional; can be used for Health & Safety Report.
-      "incidents": [  // Optional; used to classify a reported incident. Other current station procedures should also be followed when reporting an incident.
-        {
-          "type": "Minor Injury",
-          "description": "Crew member twisted ankle during EVA",
-          "severity": "Low",
-          "resolution": "First aid applied; no further issues"
-        }
-      ],
-      "morale_level": "High",  // Optional; String, can be anything. 
-      "medical_notes": "All crew healthy; no illnesses reported",  // Optional; String, can be anything. Be careful to maintain privacy of crewmembers.
+      "incidents": [],  // Optional; used to classify a reported incident. Other current station procedures should also be followed when reporting an incident.
+      "morale_level": "High",  // Optional; String, can be anything.
+      "medical_notes": "All crew healthy; no illnesses reported"  // Optional; String, can be anything. Be careful to maintain privacy of crewmembers.
   },
 
-  "metadata": {  // Extensible for custom data.  Further procedures should be established for use.
-    "attachments": ["eva_photo.jpg", "data_log.csv"],
-    "custom": { "hi_seas_specific": "Lava tube mapping status" }  // Station- or mission-specific extensions
+  "metadata": {  // Extensible for truly ad-hoc data. Use role_specific_data for typed, role-specific fields.
+    "attachments": ["ops_log.csv"],
+    "custom": {}  // Station- or mission-specific extensions that don't fit role_specific_data
   }
 }
