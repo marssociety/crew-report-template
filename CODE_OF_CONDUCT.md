@@ -24,7 +24,7 @@ The Mars Society is committed to providing a welcoming, inclusive, and harassmen
 
 ## Reporting & Enforcement
 
-If you experience or witness unacceptable behavior, please report it to the Mars Society. All reports will be reviewed and investigated promptly and confidentially.
+If you experience or witness unacceptable behavior, please [report it to the Mars Society](http://incidents.marssociety.org/). All reports will be reviewed and investigated promptly and confidentially.
 
 Volunteers who violate this code of conduct may face consequences including:
 
@@ -38,4 +38,4 @@ We are united by a shared vision: advancing the human exploration and settlement
 
 ---
 
-*Adapted from the Mars Society Volunteer Code of Conduct.*
+*Adapted from the [Mars Society Volunteer Code of Conduct](https://www.marssociety.org/wp-content/uploads/2026/02/Mars-Society-Volunteer-Code-of-Conduct.pdf).
