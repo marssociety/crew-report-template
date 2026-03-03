@@ -11,7 +11,7 @@
   "mission_start_date": "2025-07-11T00:00:00Z",
   "mission_duration_day": 5,
   "report_date": "2025-07-15T00:00:00Z",
-  "report_type": "operations",
+  "report_type": "operations_report",
   "role_specific_data": {
     "non_nominal_systems": "None",
     "notes_on_non_nominal": "",

@@ -20,7 +20,7 @@ Inspired by guidelines like the [International Guidelines and Standards for Spac
 
 ## Recent Changes
 - **Role-Specific Data (`role_specific_data`)**: New top-level field for typed, validated data specific to each report type. Replaces the pattern of stuffing role-specific fields into `metadata.custom`. The schema uses a discriminated union (`if/then` on `report_type`) so each report type has its own validated sub-schema with `additionalProperties: false`.
-- **Extended `report_type` Enum**: Replaced the generic report type with 13 MDRS-specific types: `sol_summary`, `operations`, `greenhab`, `eva_report`, `eva_request`, `journalist`, `astronomy`, `photos`, `hso_checklist`, `science`, `end_of_mission`, `checkout`, `food_inventory`.
+- **Extended `report_type` Enum**: Replaced the generic report type with 13 MDRS-specific types using canonical long forms: `sol_summary`, `operations_report`, `greenhab_report`, `eva_report`, `eva_request`, `journalist_report`, `astronomy_report`, `photos_of_the_day`, `hso_checklist`, `science_report`, `end_of_mission_report`, `checkout_checklist`, `food_inventory`. Short aliases (e.g., `operations`, `greenhab`) are accepted by convention but the longer form is preferred for storage.
 - **Typed Sub-Schemas**: Each report type has a defined schema under `definitions` in `report_schema.json`, covering fields like rover readings (operations), watering times and harvests (greenhab), equipment check matrices (hso_checklist), food inventory categories, and more.
 - **Code of Conduct**: Updated to the Mars Society Volunteer Code of Conduct.
 - **EVA Data Structure**: Added `eva_data` section with planned and actual waypoints, UTM coordinates, sample collection details, and field observations for comprehensive EVA tracking.
@@ -71,7 +71,7 @@ Example snippet:
 ```json
 {
   "report_id": "123",
-  "report_type": "operations",
+  "report_type": "operations_report",
   "title": "Operations Report - Sol 5",
   "content": "Normal operations today. All systems nominal.",
   "role_specific_data": {

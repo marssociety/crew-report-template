@@ -25,7 +25,7 @@
 
   "report_date": "2025-07-15T00:00:00Z",  // Specific date this report was covering. Should be same as the above date (Start of mission + sol #).
 
-  "report_type": "operations",  // Enum: sol_summary, operations, greenhab, eva_report, eva_request, journalist, astronomy, photos, hso_checklist, science, end_of_mission, checkout, food_inventory
+  "report_type": "operations_report",  // Enum: sol_summary, operations_report, greenhab_report, eva_report, eva_request, journalist_report, astronomy_report, photos_of_the_day, hso_checklist, science_report, end_of_mission_report, checkout_checklist, food_inventory. Short aliases (e.g., operations, greenhab) accepted but longer form preferred for storage.
 
   // NEW: Typed, role-specific data. Schema is determined by report_type value.
   // Each report_type maps to a specific set of validated fields here.

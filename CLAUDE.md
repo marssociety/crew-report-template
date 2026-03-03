@@ -32,8 +32,9 @@ The JSON template defines structured crew reports with:
 **Required Envelope Fields:**
 - `report_id`, `title`, `publish_date`, `author`, `station`, `mission_name`, `crew_number`, `mission_type`, `mission_start_date`, `mission_duration_day`, `report_date`, `report_type`, `content`
 
-**Report Type Enum:**
-- `sol_summary`, `operations`, `greenhab`, `eva_report`, `eva_request`, `journalist`, `astronomy`, `photos`, `hso_checklist`, `science`, `end_of_mission`, `checkout`, `food_inventory`
+**Report Type Enum (canonical long forms, preferred for storage):**
+- `sol_summary`, `operations_report`, `greenhab_report`, `eva_report`, `eva_request`, `journalist_report`, `astronomy_report`, `photos_of_the_day`, `hso_checklist`, `science_report`, `end_of_mission_report`, `checkout_checklist`, `food_inventory`
+- Short aliases (e.g., `operations`, `greenhab`, `journalist`, `astronomy`, `photos`, `science`, `end_of_mission`, `checkout`) are accepted by convention but the longer form is preferred for storage
 
 **Role-Specific Data (`role_specific_data`):**
 - Top-level field containing typed, validated fields specific to each `report_type`

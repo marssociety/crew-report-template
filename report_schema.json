@@ -74,10 +74,10 @@
         "avg_temperature": { "type": "string", "description": "Average temperature (last 24h)" },
         "max_temperature": { "type": "string", "description": "Maximum temperature (last 24h)" },
         "min_temperature": { "type": "string", "description": "Minimum temperature (last 24h)" },
-        "supplemental_light_hours": { "type": "number", "description": "Hours of artificial lighting" },
+        "supplemental_light_hours": { "type": "string", "description": "Hours of artificial lighting, or 'Disabled' if not in use" },
         "daily_water_usage_crops": { "type": "string", "description": "Water used for crops (e.g., '15 liters')" },
         "daily_water_usage_other": { "type": "string", "description": "Water used for research or other" },
-        "blue_tank_remaining": { "type": "number", "minimum": 0, "maximum": 200, "description": "Gallons remaining in blue tank (0-200)" },
+        "blue_tank_remaining": { "type": "number", "minimum": 0, "maximum": 160, "description": "Gallons remaining in blue tank (0-160 useful capacity)" },
         "watering_times": {
           "type": "array",
           "items": { "type": "string" },
@@ -280,7 +280,7 @@
         "cleaning_fee_actual": { "type": "string", "description": "Actual cleaning fees" },
         "checklist": {
           "type": "array",
-          "description": "Checkout checklist items organized by section",
+          "description": "Checkout checklist items as a flat array of objects. Canonical structure: each item has section (grouping key, e.g., 'Science Dome', 'GreenHab', 'Upper Deck'), item_description, crew_confirmed, staff_confirmed, and notes. The checkout data naturally comes from a nested section/item hierarchy that is flattened into this array for storage.",
           "items": {
             "type": "object",
             "properties": {
@@ -302,7 +302,7 @@
       "properties": {
         "items": {
           "type": "array",
-          "description": "Food inventory items",
+          "description": "Food inventory items. Canonical fields per item: food_type (category), item_name, starting_amount, unit, weight_lbs, and remaining_fraction (string, e.g., '1/2', '3/4', 'empty'). Categories include: Baking, Freeze Dried, Cereal, Dairy, Canned Goods, Grains & Pasta, Proteins, Snacks, Beverages, Condiments & Spices.",
           "items": {
             "type": "object",
             "properties": {
@@ -314,7 +314,7 @@
               "starting_amount": { "type": "string", "description": "Initial amount" },
               "unit": { "type": "string", "description": "Unit of measure (lbs, cans, boxes, bags, etc.)" },
               "weight_lbs": { "type": "string", "description": "Weight in pounds" },
-              "remaining_fraction": { "type": "string", "description": "Remaining amount (e.g., '1/2', '3/4', 'empty')" }
+              "remaining_fraction": { "type": "string", "description": "Remaining amount as a string fraction or status (e.g., '1/2', '3/4', 'full', 'empty')" }
             },
             "required": ["food_type", "item_name"]
           }
@@ -380,20 +380,20 @@
       "type": "string",
       "enum": [
         "sol_summary",
-        "operations",
-        "greenhab",
+        "operations_report",
+        "greenhab_report",
         "eva_report",
         "eva_request",
-        "journalist",
-        "astronomy",
-        "photos",
+        "journalist_report",
+        "astronomy_report",
+        "photos_of_the_day",
         "hso_checklist",
-        "science",
-        "end_of_mission",
-        "checkout",
+        "science_report",
+        "end_of_mission_report",
+        "checkout_checklist",
         "food_inventory"
       ],
-      "description": "Report type identifier. Determines the expected structure of role_specific_data."
+      "description": "Report type identifier (canonical long form). Determines the expected structure of role_specific_data. Short aliases (e.g., 'operations', 'greenhab', 'journalist', 'astronomy', 'photos', 'science', 'end_of_mission', 'checkout') are accepted by convention but the longer form is preferred for storage."
     },
     "role_specific_data": {
       "type": "object",
@@ -635,7 +635,7 @@
     },
     {
       "if": {
-        "properties": { "report_type": { "const": "operations" } },
+        "properties": { "report_type": { "const": "operations_report" } },
         "required": ["report_type"]
       },
       "then": {
@@ -644,7 +644,7 @@
     },
     {
       "if": {
-        "properties": { "report_type": { "const": "greenhab" } },
+        "properties": { "report_type": { "const": "greenhab_report" } },
         "required": ["report_type"]
       },
       "then": {
@@ -671,7 +671,7 @@
     },
     {
       "if": {
-        "properties": { "report_type": { "const": "journalist" } },
+        "properties": { "report_type": { "const": "journalist_report" } },
         "required": ["report_type"]
       },
       "then": {
@@ -680,7 +680,7 @@
     },
     {
       "if": {
-        "properties": { "report_type": { "const": "astronomy" } },
+        "properties": { "report_type": { "const": "astronomy_report" } },
         "required": ["report_type"]
       },
       "then": {
@@ -689,7 +689,7 @@
     },
     {
       "if": {
-        "properties": { "report_type": { "const": "photos" } },
+        "properties": { "report_type": { "const": "photos_of_the_day" } },
         "required": ["report_type"]
       },
       "then": {
@@ -707,7 +707,7 @@
     },
     {
       "if": {
-        "properties": { "report_type": { "const": "science" } },
+        "properties": { "report_type": { "const": "science_report" } },
         "required": ["report_type"]
       },
       "then": {
@@ -716,7 +716,7 @@
     },
     {
       "if": {
-        "properties": { "report_type": { "const": "end_of_mission" } },
+        "properties": { "report_type": { "const": "end_of_mission_report" } },
         "required": ["report_type"]
       },
       "then": {
@@ -725,7 +725,7 @@
     },
     {
       "if": {
-        "properties": { "report_type": { "const": "checkout" } },
+        "properties": { "report_type": { "const": "checkout_checklist" } },
         "required": ["report_type"]
       },
       "then": {
